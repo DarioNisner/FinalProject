@@ -69,14 +69,7 @@ public class SignUpTest extends BaseTest {
 
     @Test(priority = 5)
     public void validInputSignUp() {
-//    Test #4: Signup
-//    Podaci:
-//            •	name: Ime i prezime polaznika
-//•	email template: izabrani email
-//•	password: izabrani password
-//•	confirm password:
-//            assert:
-//            •	Verifikovati da dijalog za obavestenje sadrzi tekst IMPORTANT: Verify your account
+
 
         homePage.goTosignUp();
         driverWait.until(ExpectedConditions.

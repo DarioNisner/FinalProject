@@ -5,17 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SignUpPage extends BasePage{
+public class SignUpPage extends BasePage {
 
     public SignUpPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 
     @FindBy(id = "name")
-  private  WebElement registerNameField;
+    private WebElement registerNameField;
 
     @FindBy(id = "email")
-private WebElement registerEmailField;
+    private WebElement registerEmailField;
 
     @FindBy(id = "password")
     private WebElement registerPassword;
@@ -27,7 +27,7 @@ private WebElement registerEmailField;
     private WebElement signMeUpBtn;
 
 
-    public void SignUp (String name,String email,String password,String confirmPassword){
+    public void SignUp(String name, String email, String password, String confirmPassword) {
         registerNameField.sendKeys(name);
         registerEmailField.sendKeys(email);
         registerPassword.sendKeys(password);

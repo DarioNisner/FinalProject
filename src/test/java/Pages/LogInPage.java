@@ -12,16 +12,16 @@ public class LogInPage extends BasePage {
     }
 
     @FindBy(id = "email")
-   private WebElement inputEmailField;
+    private WebElement inputEmailField;
 
     @FindBy(id = "password")
-   private WebElement inputPasswordField;
+    private WebElement inputPasswordField;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[3]/span/form/div/div[3]/button")
-   private WebElement logInBtn;
+    private WebElement logInBtn;
 
 
-    public void logIn(String email,String password){
+    public void logIn(String email, String password) {
         inputEmailField.sendKeys(email);
         inputPasswordField.sendKeys(password);
         logInBtn.click();

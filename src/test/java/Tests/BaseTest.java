@@ -14,26 +14,26 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected WebDriverWait driverWait;
-protected Faker faker;
+    protected Faker faker;
 
     @BeforeClass
-    public void beforeClass(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Daca\\ITB\\ChromeDriver\\chromedriver.exe");
-        driver=new ChromeDriver();
-        driverWait=new WebDriverWait(driver, Duration.ofSeconds(20));
-        faker=new Faker();
+    public void beforeClass() {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Daca\\ITB\\ChromeDriver\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        faker = new Faker();
     }
 
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeMethod() {
         driver.manage().window().maximize();
         driver.get("https://vue-demo.daniel-avellaneda.com/");
     }
 
-@AfterClass
-    public void afterClass(){
+    @AfterClass
+    public void afterClass() {
         driver.quit();
-}
+    }
 
 
 }

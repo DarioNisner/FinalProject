@@ -74,19 +74,13 @@ public class SignUpTest extends BaseTest {
         homePage.goTosignUp();
         driverWait.until(ExpectedConditions.
                 elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[2]/span/form/div/div[5]/button")));
-        signUpPage.SignUp("Dario Nisner Bajin",faker.internet().emailAddress(),"12345","12345");
-       driverWait.until(ExpectedConditions.visibilityOfElementLocated
-               (By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div")));
-       WebElement verifyMsg=driver.findElement
-               (By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div > div.v-card__title.headline.grey.lighten-2.black--text.dlgVerifyAccount"));
-       Assert.assertTrue(verifyMsg.getText().contains("IMPORTANT: Verify your account"));
+        signUpPage.SignUp("Dario Nisner Bajin", faker.internet().emailAddress(), "12345", "12345");
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated
+                (By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div")));
+        WebElement verifyMsg = driver.findElement
+                (By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div > div.v-card__title.headline.grey.lighten-2.black--text.dlgVerifyAccount"));
+        Assert.assertTrue(verifyMsg.getText().contains("IMPORTANT: Verify your account"));
     }
-
-
-
-
-
-
 
 
 }

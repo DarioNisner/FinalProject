@@ -12,14 +12,12 @@ public abstract class BasePage {
     protected WebDriverWait driverWait;
 
 
-
-    public BasePage(WebDriver driver, WebDriverWait driverWait){
-        this.driver=driver;
-        this.driverWait=driverWait;
-        PageFactory.initElements(this.driver,this);
+    public BasePage(WebDriver driver, WebDriverWait driverWait) {
+        this.driver = driver;
+        this.driverWait = driverWait;
+        PageFactory.initElements(this.driver, this);
 
     }
-
 
 
 }

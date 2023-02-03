@@ -20,10 +20,32 @@ private WebElement cityBtn;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div[1]/div[1]/div[3]/form/div[1]/button")
 private WebElement addItemBtn;
+
+    @FindBy(id = "edit")
+    private WebElement editCity;
+@FindBy (id = "search")
+WebElement searchCityField;
+
+
+@FindBy(xpath = "//*[@id=\"app\"]/div[5]/div/div/div[3]/button[2]")
+private WebElement saveBtn;
+
     public void goToCityMenu(){
         cityBtn.click();
     }
+public void createCity(){
+        addItemBtn.click();
+}
+public void editCity(){
 
+        editCity.click();
+}
+public void searchCity(String cityName){
+        searchCityField.sendKeys(cityName);
 
+}
+public void saveCity(){
+        saveBtn.click();
+}
 
 }

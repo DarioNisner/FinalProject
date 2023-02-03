@@ -19,10 +19,10 @@ public class HomePage extends BasePage {
     WebElement localeBtn;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/header/div/div[3]/a[3]")
-    WebElement goToMyProfilePage;
+    WebElement toMyProfilePage;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[1]")
-    WebElement goToAdminPage;
+    WebElement toAdminPage;
 
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[2]")
     WebElement logOutBtn;
@@ -39,4 +39,9 @@ public class HomePage extends BasePage {
     public void logOut(){
         logOutBtn.click();
     }
+    public void goToAdminPage(){
+        toAdminPage.click();
+    }
+
+
 }

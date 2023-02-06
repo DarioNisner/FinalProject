@@ -26,7 +26,7 @@ public class AdminCitiesTest extends BaseTest {
         homePage = new HomePage(driver, driverWait);
         logInPage = new LogInPage(driver, driverWait);
         adminCityPage = new AdminCityPage(driver, driverWait);
-        createdCityName = "KaoNekiGrad120";   //IF DATABASE DID NOT RESTART,CHANGE VARIABLE VALUE!!!
+        createdCityName = "KaoNekiGrad125";   //IF DATABASE DID NOT RESTART,CHANGE VARIABLE VALUE!!!
 
     }
 
@@ -58,26 +58,22 @@ public class AdminCitiesTest extends BaseTest {
     }
 
 
-    @Test(priority = 1)
+    @Test
     public void adminCitiesTest() {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("/admin/cities"));
         Assert.assertTrue(driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/header/div/div[3]/button[2]")).isDisplayed());
     }
 
-    @Test(priority = 2)
+    @Test
     public void createCityTest() {
 
-//    Podaci: random grad korisćenjem faker library-ja
-//    assert:
-//	Verifikovati da poruka sadrzi tekst Saved successfully
 
         adminCityPage.createCity();
         driverWait.until(ExpectedConditions.elementToBeClickable
                 (By.xpath("//*[@id=\"app\"]/div[5]/div/div/div[3]/button[1]")));
         newCityName = driver.findElement(By.id("name"));
         newCityName.sendKeys(createdCityName);
-
         driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[5]/div/div/div[3]/button[2]")));
         adminCityPage.saveCity();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -85,11 +81,8 @@ public class AdminCitiesTest extends BaseTest {
         Assert.assertTrue(message.getText().contains("Saved successfully"));
     }
 
-    @Test(priority = 3)
+    @Test
     public void editCityTest() {
-//    Podaci: edituje se grad koji je u testu 2 kreiran na isto ime + - edited (primer: Beograd – Beograd edited)
-//    assert:
-//	Verifikovati da poruka sadrzi tekst Saved successfully
 
         adminCityPage.searchCity(createdCityName);
         driverWait.until(ExpectedConditions.elementToBeClickable(By.id("edit")));
@@ -102,28 +95,17 @@ public class AdminCitiesTest extends BaseTest {
         Assert.assertTrue(message.getText().contains("Saved successfully"));
     }
 
-    @Test(priority = 4)
-    public void deleteCityTest(){
-//        Test #5: Delete city
-//        Podaci: editovani grad iz testa #3
-//        assert:
-//	U polje za pretragu uneti staro ime grada
-//	Sacekati da broj redova u tabeli bude 1
-//	Verifikovati da se u Name koloni prvog reda nalazi tekst iz pretrage
-//	Kliknuti na dugme Delete iz prvog reda
-//	Sacekati da se dijalog za brisanje pojavi
-//	Kliknuti na dugme Delete iz dijaloga
-//	Sacekati da popu za prikaz poruke bude vidljiv
-//	Verifikovati da poruka sadrzi tekst Deleted succ
+    @Test
+    public void deleteCityTest() {
 
-adminCityPage.searchCity(createdCityName+"-edited");
-driverWait.until(ExpectedConditions.elementToBeClickable(By.id("delete")));
-adminCityPage.deleteCity();
-driverWait.until(ExpectedConditions.visibilityOfElementLocated
-        (By.cssSelector("#app > div.v-application--wrap > main > div > div.container.container--fluid > div > div:nth-child(3) > div > div > div > div > div.v-snack__content > button")));
-WebElement deleteMsg= driver.findElement(By.cssSelector
-        ("#app > div.v-application--wrap > main > div > div.container.container--fluid > div > div:nth-child(3) > div > div > div"));
-Assert.assertTrue(deleteMsg.getText().contains("Deleted successfully"));
+        adminCityPage.searchCity(createdCityName + "-edited");
+        driverWait.until(ExpectedConditions.elementToBeClickable(By.id("delete")));
+        adminCityPage.deleteCity();
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated
+                (By.cssSelector("#app > div.v-application--wrap > main > div > div.container.container--fluid > div > div:nth-child(3) > div > div > div > div > div.v-snack__content > button")));
+        WebElement deleteMsg = driver.findElement(By.cssSelector
+                ("#app > div.v-application--wrap > main > div > div.container.container--fluid > div > div:nth-child(3) > div > div > div"));
+        Assert.assertTrue(deleteMsg.getText().contains("Deleted successfully"));
 
 
     }

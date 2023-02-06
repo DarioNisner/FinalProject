@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.time.Duration;
+
 
 public class LoginTest extends BaseTest {
 
@@ -49,7 +49,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(dependsOnMethods = "urlRouteTest")
+    @Test
     public void attributeValueTest() {
 
         homePage.goToLogIn();
@@ -62,7 +62,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(dependsOnMethods = "urlRouteTest")
+    @Test
     public void wrongInputTest() {
 
         homePage.goToLogIn();
@@ -76,7 +76,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"));
     }
 
-    @Test(priority = 3)
+    @Test
     public void wrongPasswordTest() {
 
         homePage.goToLogIn();
@@ -91,7 +91,7 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test(priority = 4)
+    @Test
     public void correctInputTest() {
 
         homePage.goToLogIn();
@@ -103,7 +103,7 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test(dependsOnMethods = "correctInputTest")
+    @Test
     public void logOutTest() {
 
 

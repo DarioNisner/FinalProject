@@ -44,7 +44,7 @@ public class SignUpTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/signup"));
     }
 
-    @Test(dependsOnMethods = "signUpUrlRouteTest")
+    @Test
     public void inputTypesTest() {
         homePage.goTosignUp();
         driverWait.until(ExpectedConditions.
@@ -54,7 +54,7 @@ public class SignUpTest extends BaseTest {
         Assert.assertTrue(driver.findElement(By.id("confirmPassword")).getAttribute("type").contains("password"));
     }
 
-    @Test(priority = 4)
+    @Test
     public void existentUserTest() {
 
         homePage.goTosignUp();
@@ -67,9 +67,8 @@ public class SignUpTest extends BaseTest {
         Assert.assertTrue(driver.findElement(By.className("v-snack__content")).getText().contains("E-mail already exists"));
     }
 
-    @Test(priority = 5)
+    @Test
     public void validInputSignUp() {
-
 
         homePage.goTosignUp();
         driverWait.until(ExpectedConditions.

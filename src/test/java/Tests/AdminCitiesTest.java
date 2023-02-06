@@ -26,7 +26,7 @@ public class AdminCitiesTest extends BaseTest {
         homePage = new HomePage(driver, driverWait);
         logInPage = new LogInPage(driver, driverWait);
         adminCityPage = new AdminCityPage(driver, driverWait);
-        createdCityName = "KaoNekiGrad4";   //IF DATABASE DID NOT RESTART,CHANGE VARIABLE NAME!!!
+        createdCityName = "KaoNekiGrad120";   //IF DATABASE DID NOT RESTART,CHANGE VARIABLE VALUE!!!
 
     }
 
@@ -102,4 +102,29 @@ public class AdminCitiesTest extends BaseTest {
         Assert.assertTrue(message.getText().contains("Saved successfully"));
     }
 
+    @Test(priority = 4)
+    public void deleteCityTest(){
+//        Test #5: Delete city
+//        Podaci: editovani grad iz testa #3
+//        assert:
+//	U polje za pretragu uneti staro ime grada
+//	Sacekati da broj redova u tabeli bude 1
+//	Verifikovati da se u Name koloni prvog reda nalazi tekst iz pretrage
+//	Kliknuti na dugme Delete iz prvog reda
+//	Sacekati da se dijalog za brisanje pojavi
+//	Kliknuti na dugme Delete iz dijaloga
+//	Sacekati da popu za prikaz poruke bude vidljiv
+//	Verifikovati da poruka sadrzi tekst Deleted succ
+
+adminCityPage.searchCity(createdCityName+"-edited");
+driverWait.until(ExpectedConditions.elementToBeClickable(By.id("delete")));
+adminCityPage.deleteCity();
+driverWait.until(ExpectedConditions.visibilityOfElementLocated
+        (By.cssSelector("#app > div.v-application--wrap > main > div > div.container.container--fluid > div > div:nth-child(3) > div > div > div > div > div.v-snack__content > button")));
+WebElement deleteMsg= driver.findElement(By.cssSelector
+        ("#app > div.v-application--wrap > main > div > div.container.container--fluid > div > div:nth-child(3) > div > div > div"));
+Assert.assertTrue(deleteMsg.getText().contains("Deleted successfully"));
+
+
+    }
 }

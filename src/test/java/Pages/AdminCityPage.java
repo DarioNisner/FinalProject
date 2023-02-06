@@ -30,6 +30,12 @@ WebElement searchCityField;
 @FindBy(xpath = "//*[@id=\"app\"]/div[5]/div/div/div[3]/button[2]")
 private WebElement saveBtn;
 
+
+@FindBy(id = "delete")
+private WebElement deleteBtn;
+@FindBy(xpath = "//*[@id=\"app\"]/div[5]/div/div/div[2]/button[2]")
+private WebElement confirmDelete;
+
     public void goToCityMenu(){
         cityBtn.click();
     }
@@ -48,4 +54,9 @@ public void saveCity(){
         saveBtn.click();
 }
 
+public void deleteCity(){
+        deleteBtn.click();
+        driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[5]/div/div/div[2]/button[2]")));
+        confirmDelete.click();
+}
 }

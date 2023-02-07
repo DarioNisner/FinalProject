@@ -75,7 +75,7 @@ public class SignUpTest extends BaseTest {
                 elementToBeClickable(By.xpath("//*[@id=\"app\"]/div[1]/main/div/div[2]/div/div/div[2]/span/form/div/div[5]/button")));
         signUpPage.SignUp("Dario Nisner Bajin", faker.internet().emailAddress(), "12345", "12345");
         driverWait.until(ExpectedConditions.visibilityOfElementLocated
-                (By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div")));
+                (By.xpath("//*[@id=\"app\"]/div[4]/div/div/div[3]/button")));//close btn on verify msg
         WebElement verifyMsg = driver.findElement
                 (By.cssSelector("#app > div.v-dialog__content.v-dialog__content--active > div > div > div.v-card__title.headline.grey.lighten-2.black--text.dlgVerifyAccount"));
         Assert.assertTrue(verifyMsg.getText().contains("IMPORTANT: Verify your account"));

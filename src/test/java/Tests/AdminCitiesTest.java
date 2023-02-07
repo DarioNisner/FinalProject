@@ -26,7 +26,7 @@ public class AdminCitiesTest extends BaseTest {
         homePage = new HomePage(driver, driverWait);
         logInPage = new LogInPage(driver, driverWait);
         adminCityPage = new AdminCityPage(driver, driverWait);
-        createdCityName = "KaoNekiGrad125";   //IF DATABASE DID NOT RESTART,CHANGE VARIABLE VALUE!!!
+        createdCityName = "KaoNekiGrad125";
 
     }
 

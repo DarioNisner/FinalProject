@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -57,14 +58,30 @@ public class HomePage extends BasePage {
     public void goToAdminPage() {
         toAdminPage.click();
     }
-        public String getHeader () {
-            return header.getText();
-        }
-public void goToProfilePage(){
+
+    public String getHeader() {
+        return header.getText();
+    }
+
+    public void goToProfilePage() {
         driverWait.until(ExpectedConditions.elementToBeClickable(toMyProfilePage));
         toMyProfilePage.click();
-}
-
-
-
     }
+
+    public void chooseLocale(LocalePage locale) {
+        localeBtn.click();
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[2]/div")));
+
+        switch (locale) {
+            case EN:
+                english.click();
+                break;
+            case ES:
+                spanish.click();
+                break;
+            case FR:
+                french.click();
+                break;
+        }
+    }
+}

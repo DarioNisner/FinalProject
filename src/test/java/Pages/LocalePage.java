@@ -1,4 +1,5 @@
 package Pages;
-
-public class LocalePage {
+import org.openqa.selenium.support.FindBy;
+public enum LocalePage {
+    EN, ES, FR
 }

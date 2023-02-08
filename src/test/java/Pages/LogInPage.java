@@ -22,6 +22,7 @@ public class LogInPage extends BasePage {
 
 
     public void logIn(String email, String password) {
+
         inputEmailField.sendKeys(email);
         inputPasswordField.sendKeys(password);
         logInBtn.click();
